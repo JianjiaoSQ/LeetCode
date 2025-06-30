@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # 中序遍历就是 左->根->右 这样的顺序
         res = []
         
         def order(root):
