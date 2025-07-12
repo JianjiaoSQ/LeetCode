@@ -10,7 +10,7 @@ def main():
         sys.exit(1)
     
     problems_dir = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else "combined_solutions.md"
+    output_file = sys.argv[2] if len(sys.argv) > 2 else "solutions.md"
     
     # 初始化统计信息
     total = 0
