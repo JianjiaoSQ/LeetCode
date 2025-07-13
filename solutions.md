@@ -1,6 +1,6 @@
 # 题解合集
 
-*生成时间: 2025-07-12 14:43:14*
+*生成时间: 2025-07-13 14:11:42*
 
 ## 0001-TwoSum-Easy
 
@@ -1136,8 +1136,82 @@ class Solution:
         
 ```
 
+## 0234-PalindromeLinkedList-Easy
+
+<h2> Easy  |  CN: <a href="https://leetcode.cn/problems/palindrome-linked-list">234. Palindrome Linked List</a>  |  EN: <a href="https://leetcode.com/problems/palindrome-linked-list">234. Palindrome Linked List</a></h2><hr><p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a </em><span data-keyword="palindrome-sequence"><em>palindrome</em></span><em> or </em><code>false</code><em> otherwise</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg" style="width: 422px; height: 62px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,2,1]
+<strong>Output:</strong> true
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg" style="width: 182px; height: 62px;" />
+<pre>
+<strong>Input:</strong> head = [1,2]
+<strong>Output:</strong> false
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the list is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you do it in <code>O(n)</code> time and <code>O(1)</code> space?
+
+### 题解
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+
+        middle = self.middleNode(head)
+        new = self.reverse(middle)
+
+        while new:
+            if new.val != head.val:
+                return False
+            new = new.next
+            head = head.next
+        return True
+
+    def middleNode(self, head):
+        fast = slow = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        return slow
+        
+    def reverse(self, head):
+        pre = None
+        cur = head
+        while cur:
+            tmp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = tmp
+        return pre
+
+
+        
+
+        
+```
+
 ## 统计
 
-- 总题目数: 19
-- 成功处理: 18
-- 跳过题目: 1
+- 总题目数: 21
+- 成功处理: 19
+- 跳过题目: 2

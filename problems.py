@@ -3,14 +3,14 @@ import sys
 from datetime import datetime
 
 def main():
-    # 配置参数
-    if len(sys.argv) < 2:
-        print("Usage: python problems.py <problems_directory> [output_file]")
-        print("Example: python problems.py ./problems all_solutions.md")
-        sys.exit(1)
+    # # 配置参数
+    # if len(sys.argv) < 2:
+    #     print("Usage: python problems.py <problems_directory> [output_file]")
+    #     print("Example: python problems.py ./problems all_solutions.md")
+    #     sys.exit(1)
     
-    problems_dir = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else "solutions.md"
+    problems_dir = './'
+    output_file = "solutions.md"
     
     # 初始化统计信息
     total = 0
@@ -21,7 +21,7 @@ def main():
     content = []
     content.append(f"# 题解合集\n\n")
     content.append(f"*生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
-    
+
     # 遍历问题目录
     for problem_dir in sorted(os.listdir(problems_dir)):
         dir_path = os.path.join(problems_dir, problem_dir)
